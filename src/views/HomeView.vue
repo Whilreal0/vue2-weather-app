@@ -1,5 +1,5 @@
 <template>
-  <div class="pa-10 overflow-hidden" id="background" :class="typeof weather.main != 'undefined' && isDay ? 'day' : 'night' " >
+  <div class="pa-10" id="background" :class="typeof weather.main != 'undefined' && isDay ? 'day' : 'night' " >
     <v-layout row wrap>
       <v-flex xs12 md6>
         <v-container class="pa-5 pa-md-16 mt-0 mt-md-16 text-center" >
