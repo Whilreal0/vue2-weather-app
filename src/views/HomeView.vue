@@ -65,7 +65,6 @@ export default {
 name: 'Home',
 data: ()=>({
   isDay: true,
-  isDayCard: true,
   
   key : 'eec872c979e19e8e88b17d79ff0e5883',
   baseURL: 'https://api.openweathermap.org/data/2.5/',
@@ -90,11 +89,11 @@ methods:{
       const timeOfDay = results.weather[0].icon;
       if(timeOfDay.includes("n")){
         this.isDay = false;
-        this.isDayCard = false;
+        
         return 'day'
       }else{
         this.isDay = true
-        this.isDayCard = true;
+        
         
       }
       this.visible =true
