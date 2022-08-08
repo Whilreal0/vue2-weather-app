@@ -4,13 +4,17 @@
     box-sizing: border-box;
    
 }
-
+body{
+    overflow: hidden;
+}
 ul, li{
     list-style: none;
     
 }
 #background{
-
+    /* overflow: hidden; */
+    position: fixed;
+    width: 100%;
     height: 100%;
     
 }
@@ -27,34 +31,40 @@ ul, li{
 /* change background if day or night */
 
 .day{
+    color: rgb(78, 76, 76);
     background: #CAC531;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F3F9A7, #CAC531);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F3F9A7, #CAC531); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(145deg, #FFFF54, #BDBF3A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(145deg, #FFFF54, #BDBF3A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
 }
 .night{
     color: white;
-    background: #000000;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+    background: #1f1f1f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(145deg, #252525, #191919);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(145deg, #252525, #191919); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
 }
 /*  */
 
-.weather-temp{
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(2px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-right-color: rgba(255, 255, 255, 0.1);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 1.3rem;
+.weather-temp-day{
+    background: linear-gradient(145deg, #FFFF54, #BDBF3A);
+    border-radius: 1.3rem;;
+    box-shadow: inset 9.91px 9.91px 15px #D3D641, inset -9.91px -9.91px 15px #FDFF4D;
 }
-.right-container{
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(2px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-right-color: rgba(255, 255, 255, 0.1);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+.right-container-day{
+
+    background: linear-gradient(145deg, #FFFF54, #BDBF3A);
+    border-radius: 1.3rem;;
+    box-shadow: inset 9.91px 9.91px 15px #D3D641, inset -9.91px -9.91px 15px #FDFF4D;
+}
+
+/* night classes */
+.weather-temp-night{
+    background: linear-gradient(145deg, #252525, #191919);
     border-radius: 1.3rem;
+    box-shadow: inset 9.91px 9.91px 15px #1C1C1C, inset -9.91px -9.91px 15px #222222;
+}
+.right-container-night{
+    background: linear-gradient(145deg, #252525, #191919);
+    border-radius: 1.3rem;
+    box-shadow: inset 9.91px 9.91px 15px #1C1C1C, inset -9.91px -9.91px 15px #222222;
 }

@@ -1,10 +1,10 @@
 <template>
-  <div class="pa-10 overflow-hidden" id="background" :class="typeof weather.main != 'undefined' && isDay ? 'day' : 'night' " >
+  <div class="pa-10" id="background" :class="typeof weather.main != 'undefined' && isDay ? 'day' : 'night' " >
     <v-layout row wrap>
       <v-flex xs12 md6>
         <v-container class="pa-5 pa-md-16 mt-0 mt-md-16 text-center" >
           
-            <v-text-field v-model="searchCity" label="Search City" solo @keypress="getWeather"></v-text-field>
+            <v-text-field id="textfield" v-model="searchCity" label="Search City" solo @keypress="getWeather"></v-text-field>
           
             <p class="text-center" v-if="cityFound">No City Found</p>
         <div>
@@ -14,7 +14,7 @@
             <!-- <p id="coordinate">{{Math.round(weather.coord.lat)}}&deg;N , {{Math.round(weather.coord.lon)}}&deg;W</p> -->
           
             <p class="text-center">{{weather.weather[0].description}}</p>
-            <span class="weather-temp px-2 display-4">{{Math.round(weather.main.temp)}}&deg;C</span>
+            <span class="weather-temp px-2 display-4" :class="isDay ? 'weather-temp-day' : 'weather-temp-night'">{{Math.round(weather.main.temp)}}&deg;C</span>
            
   
           </div>
@@ -26,9 +26,9 @@
         <v-container class="pa-5 pa-md-16 mt-0 mt-md-16 mt-md-0 pt-0 justify-content" v-if="typeof weather.main != 'undefined' && visible" >
          <div class="right ">
           <h2 class="text-center pb-2">Weather Details</h2>
-          <div class="d-flex justify-content right-container py-2">
+          <div class="d-flex justify-content right-container py-2" :class="isDay ? 'right-container-day': 'right-container-night'">
 
-              <div class="details ">
+              <div class="details " >
               <ul>
                   <li class="title" id="wind-speed-label">Wind Speed</li>         
                   <li class="title" id="wind-gust-label">Wind Gust</li>
@@ -65,13 +65,14 @@ export default {
 name: 'Home',
 data: ()=>({
   isDay: true,
+  isDayCard: true,
   
   key : 'eec872c979e19e8e88b17d79ff0e5883',
   baseURL: 'https://api.openweathermap.org/data/2.5/',
   searchCity: '',
   weather:{},
   visible: true,
-  cityFound:false
+  cityFound:false,
 }),
 methods:{
   getWeather(e){
@@ -89,9 +90,11 @@ methods:{
       const timeOfDay = results.weather[0].icon;
       if(timeOfDay.includes("n")){
         this.isDay = false;
+        this.isDayCard = false;
         return 'day'
       }else{
         this.isDay = true
+        this.isDayCard = true;
         
       }
       this.visible =true

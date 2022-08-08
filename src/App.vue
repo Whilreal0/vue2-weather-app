@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="scroll-hidden">
     <v-main>
       <router-view/>
     </v-main>
